@@ -18,7 +18,8 @@ def allowed_file(filename):
 def form():
     if request.method == "POST":
         name = request.form["name"]
-        date = request.form["date"]
+        date = request.form["date"].strip().split("-")
+        date = f"{date[2]}/{date[1]}/{date[0]}"
         tags = request.form["tags"]
         problem_id = request.form["problem_id"]
         tags = tags.strip().split(" ")
